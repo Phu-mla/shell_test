@@ -21,7 +21,7 @@ char **token_maker(char *str)
 		exit(EXIT_FAILURE);
 	}
 
-	tkns = strtok(str, "\n\t\r ");
+	tkn = strtok(str, "\n\t\r ");
 
 	x = 0;
 	while (tkn != NULL)

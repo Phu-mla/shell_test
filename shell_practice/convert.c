@@ -28,7 +28,7 @@ char *search_(char *cmd, char *fpath, char *path)
 	while (tok != NULL)
 	{
 		path_len = str_len(tok);
-		fpath = malloc(sizeof(char) * path_len + cmd_len) +2);
+		fpath = malloc(sizeof(char) * (path_len + cmd_len) +2);
 		if (fpath == NULL)
 		{	
 			print_error(1);

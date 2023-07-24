@@ -24,6 +24,7 @@ int main(void)
 		tkns = token_maker(input);
 		if (tkns[0] == NULL)
 			continue;
+		builtin_state = exec_builtin(tkns);
 		if (builtin_state == 0 || builtin_state == -1)
 		{
 			free(tkns);
@@ -36,7 +37,7 @@ int main(void)
 
 		flag = 0;
 		path = get_env("PATH");
-		full_path = search(tkns[0], full_path, path);
+		full_path = search_(tkns[0], full_path, path);
 		if (full_path == NULL)
 			full_path = tkns[0];
 		else

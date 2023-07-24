@@ -46,7 +46,7 @@ typedef struct built_s
 
 char *get_line(FILE *fp);
 char **token_maker(char *str);
-char *search_(char *cmd, char *fpath, char *path)
+char *search_(char *cmd, char *fpath, char *path);
 int child(char *fpath, char **tkns);
 void cue(int fd, struct stat buff);
 void print_error(int err);
@@ -59,7 +59,7 @@ int num_builtins(built_s builtin[]);
 
 /*Helper functions*/
 char *str_cpy(char *dest, char *src);
-int str_cmp(char *input, char var, unsigned int len);
+int str_cmp(char *input, char *var, unsigned int len);
 int strn_cmp(char *input, char *var, unsigned int len);
 int str_len(char *i);
 void _puts(char *str);

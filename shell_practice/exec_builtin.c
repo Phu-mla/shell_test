@@ -13,7 +13,7 @@ int exec_builtin(char **tkns)
 	unsigned int x;
 	unsigned int num;
 
-	builtin_s builtin[] = {
+	built_s builtin[] = {
 		{"exit", exit_shell},
 		{"env", print_env},
 		{NULL, NULL}
@@ -30,7 +30,7 @@ int exec_builtin(char **tkns)
 	{
 		if(str_cmp(tkns[0], builtin[x].name, len) == 0)
 		{
-			state = (bultin[x].p)();
+			state = (builtin[x].p)();
 			return (state);
 		}
 	}

@@ -7,7 +7,7 @@
 
 char *get_env(const char *env_var)
 {
-	unsigned int path_len; len_env, len, x;
+	unsigned int path_len, len_env, len, x;
 	char *var, *val, *path;
 	char **cpy_environ;
 	int comp;
@@ -22,7 +22,7 @@ char *get_env(const char *env_var)
 
 	x = 0;
 	
-	while (copy_environ[x] != NULL)
+	while (cpy_environ[x] != NULL)
 	{
 		var = cpy_environ[x];
 		comp = strn_cmp((char *)env_var, var, len);
@@ -30,14 +30,21 @@ char *get_env(const char *env_var)
 		{
 			val = strtok(var, "=");
 			val = strtok(NULL, "\n ");
-		if (val == '\0')
-		{
-			print_error(1);
-			return (NULL);
-		}
-		path = str_cpy(path, val);
-		free_double(cpy_environ, len_env);
-		return (path);
+			if (val == NULL)
+			{
+			print_error(4);
+			exit(EXIT_FAILURE);
+			}
+			path_len = str_len(val);
+			path = malloc(sizeof(char) * path_len + 1);
+			if (path == NULL)
+			{
+				print_error(1);
+				return (NULL);
+			}
+			path = str_cpy(path, val);
+			free_double(cpy_environ, len_env);
+			return (path);
 	}	
 		x++;
 	}
@@ -62,6 +69,7 @@ char **cpy_env(char **cpy_environ, unsigned int len_env)
 		print_error(1);
 		return (NULL);
 	}
+
 	x = 0;
 	while (x < len_env)
 	{

@@ -61,4 +61,20 @@ int strn_cmp(char *input, char *var, unsigned int len)
 	}
 	return (1);
 }
-		
+
+/**
+ * str_cpy - copies string pointed to by src to the buffer pointed to dest
+ * @dest: string destination
+ * @src: source string
+ * Return: ptr to destination string
+ */
+char *str_cpy(char *dest, char *src)
+{
+	int x;
+	int y = str_len(src);
+
+	for (x = 0; x <= y; x++)
+		dest[x] = src[x];
+
+	return (dest);
+}

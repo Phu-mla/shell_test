@@ -10,7 +10,7 @@
 void cue(int fd, struct stat buff)
 {
 	fstat(fd, &buff);
-	if (S_ISCHR(buff.stmode))
+	if (S_ISCHR(buff.st_mode))
 	_puts(PROMPT);
 }
 

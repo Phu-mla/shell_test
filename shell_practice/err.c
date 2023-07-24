@@ -12,12 +12,12 @@ void print_error(int err)
 	{
 	case 1: 
 	/*malloc error*/
-		write(STDERR_FILENO, ERR_MALLOC, _strlen(ERR_MALLOC));
+		write(STDERR_FILENO, ERR_MALLOC, str_len(ERR_MALLOC));
 		break;
 
 	case 2:
 	/*fork error*/
-		write(STDERR_FILENO, ERR_FORK, _strlen(ERR_MALLOC));
+		write(STDERR_FILENO, ERR_FORK, str_len(ERR_MALLOC));
 		perror("Error");
 		break;
 
@@ -28,7 +28,7 @@ void print_error(int err)
 
 	case 4:
 	/* empty path error */
-		write(STDERR_FILENO, ERR_PATH, _strlen(ERR_PATH));
+		write(STDERR_FILENO, ERR_PATH, str_len(ERR_PATH));
 		break;
 
 	default:
